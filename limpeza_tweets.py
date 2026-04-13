@@ -6,8 +6,9 @@ from groq import Groq
 # =========================================================
 # CONFIGURAÇÕES - TCC (MODO TURBO)
 # =========================================================
+GROQ_API_KEY = "sua chacve aqui"
 
-client = Groq(api_key="Defini e aqui a sua chave de api")
+client = Groq(api_key=GROQ_API_KEY)
 
 INPUT_FILE = "tweets_nitter.json"
 OUTPUT_FILE = "tweets_filtrados.json"

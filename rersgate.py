@@ -1,58 +1,118 @@
 import json
-import os
 
-ENTRADA = "tweets_filtrados.json"
-SAIDA_FINAL = "tweets_TCC_corrigidos.json"
+# =========================
+# CONFIG
+# =========================
+FILES = {
+    "mistral": "classified_sentiment_mistral_other.json",
+    "llama": "classified_sentiment_llama.json",
+    "phi": "classified_sentiment_phi4.json",
+    "deepseek": "classified_sentiment_deepseek.json"
+}
 
-# Lista de termos-chave para o resgate (em minúsculo)
-TERMOS_RESGATE = [
-    "chatgpt", "gpt", "openai", "gemini", "copilot", 
-    "ia", "ai", "inteligencia artificial", "inteligência artificial",
-    "deepseek", "claude", "midjourney", "dall-e"
-]
+OUTPUT_FILE = "dataset_final_v2.json"
 
-def corrigir_base_dados():
-    if not os.path.exists(ENTRADA):
-        print(f"Arquivo {ENTRADA} não encontrado!")
-        return
+# =========================
+# FUNÇÕES
+# =========================
+def load_json(file):
+    with open(file, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-    with open(ENTRADA, "r", encoding="utf-8") as f:
-        dados = json.load(f)
+def clean_id(tweet_id):
+    return tweet_id.split("#")[0] if tweet_id else None
 
-    base_final = []
-    recuperados = 0
+def normalize_sentiment(s):
+    if not s:
+        return "NEUTRO"
+    s = str(s).upper()
 
-    print("Iniciando correção de falsos negativos...")
+    if "POS" in s:
+        return "POSITIVO"
+    if "NEG" in s:
+        return "NEGATIVO"
 
-    for tweet in dados:
-        # Pega o texto e transforma em minúsculo apenas para a verificação
-        texto_comparacao = tweet.get("content", "").lower()
-        status_ia = tweet.get("relevante", "")
+    return "NEUTRO"
 
-        # Se a IA descartou, verificamos se as palavras-chave estão lá
-        if status_ia == "NAO_RELEVANTE":
-            # O 'any' verifica se qualquer um dos termos está no texto (independente de ser MAIÚSCULO no original)
-            if any(termo in texto_comparacao for termo in TERMOS_RESGATE):
-                tweet["relevante"] = "RELEVANTE" # Muda o status no dicionário
-                base_final.append(tweet)
-                recuperados += 1
-            else:
-                # Se realmente não tem as palavras, fica de fora
-                pass
-        else:
-            # Se a IA já tinha marcado como RELEVANTE, mantemos na base
-            base_final.append(tweet)
+# =========================
+# LOAD
+# =========================
+data = {k: load_json(v) for k, v in FILES.items()}
 
-    # Salva o arquivo final com todos os relevantes (originais + recuperados)
-    with open(SAIDA_FINAL, "w", encoding="utf-8") as f:
-        json.dump(base_final, f, ensure_ascii=False, indent=2)
+# =========================
+# INDEXAR POR TWEET_ID
+# =========================
+indexed = {}
 
-    print("-" * 40)
-    print(f"RESULTADO DA CORREÇÃO:")
-    print(f"Tweets recuperados (que a IA errou): {recuperados}")
-    print(f"Total de tweets relevantes para o TCC: {len(base_final)}")
-    print(f"Arquivo gerado: {SAIDA_FINAL}")
-    print("-" * 40)
+for model, items in data.items():
+    for item in items:
 
-if __name__ == "__main__":
-    corrigir_base_dados()
+        tid = clean_id(item.get("tweet_id"))
+        if not tid:
+            continue
+
+        # criar base
+        if tid not in indexed:
+            indexed[tid] = {
+                "tweet_id": tid,
+                "content": item.get("content"),
+                "model": item.get("model"),
+                "event": item.get("event"),
+                "event_date": item.get("event_date"),
+                "date": item.get("date"),
+                "days_after_event": item.get("days_after_event"),
+                "author": item.get("author"),
+                "source": item.get("source"),
+
+                # votos
+                "llama": None,
+                "mistral": None,
+                "phi": None,
+                "deepseek": None
+            }
+
+        # pegar sentimento correto (cada modelo usa campo diferente)
+        sentiment = (
+            item.get("sentiment")
+            or item.get("sentiment_phi3")
+            or item.get("sentiment_deepseek")
+        )
+
+        indexed[tid][model] = normalize_sentiment(sentiment)
+
+# =========================
+# CALCULAR VOTAÇÃO
+# =========================
+final_data = []
+
+for item in indexed.values():
+
+    mistral = item["mistral"]
+
+    votes = 0
+
+    for m in ["llama", "phi", "deepseek"]:
+        if item[m] == mistral:
+            votes += 1
+
+    # =========================
+    # CAMPOS FINAIS
+    # =========================
+    item["final_sentiment"] = mistral
+    item["votes_for_mistral"] = votes
+
+    # nível de concordância (inclui mistral)
+    item["agreement_level"] = f"{votes + 1}/4"
+
+    # maioria concorda?
+    item["mistral_supported"] = votes >= 2
+
+    final_data.append(item)
+
+# =========================
+# SAVE
+# =========================
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    json.dump(final_data, f, ensure_ascii=False, indent=2)
+
+print(f"✅ Dataset final gerado com sucesso: {OUTPUT_FILE}")
