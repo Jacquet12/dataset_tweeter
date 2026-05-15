@@ -1,0 +1,4 @@
+final_sentiment_true,mistral_pred_POSITIVO,mistral_pred_NEGATIVO,mistral_pred_NEUTRO
+POSITIVO,3132,69,631
+NEGATIVO,473,2077,1271
+NEUTRO,1994,364,5000

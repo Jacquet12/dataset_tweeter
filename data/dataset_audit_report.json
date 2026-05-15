@@ -1,0 +1,235 @@
+{
+  "input_file": "data/reference_labels_final.json",
+  "total_tweets": 15011,
+  "null_or_blank_counts": {
+    "tweet_id": 0,
+    "content": 0,
+    "date": 0,
+    "event": 0,
+    "event_date": 5316,
+    "days_after_event": 5316,
+    "model": 0,
+    "mistral_sentiment": 0,
+    "llama_sentiment": 0,
+    "phi_sentiment": 0,
+    "deepseek_sentiment": 0,
+    "final_sentiment": 0
+  },
+  "null_or_blank_examples": {
+    "event_date": [
+      {
+        "tweet_id": "1409892839941672964#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409894669820039175#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409896611703054336#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409896784986394624#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409897269659324423#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409898439887003650#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409900417740328960#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409919511449509891#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409922047040491527#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409925833435889679#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409932812577280006#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409932915107151879#m",
+        "field": "event_date"
+      }
+    ],
+    "days_after_event": [
+      {
+        "tweet_id": "1409892839941672964#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409894669820039175#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409896611703054336#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409896784986394624#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409897269659324423#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409898439887003650#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409900417740328960#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409919511449509891#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409922047040491527#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409925833435889679#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409932812577280006#m",
+        "field": "days_after_event"
+      },
+      {
+        "tweet_id": "1409932915107151879#m",
+        "field": "days_after_event"
+      }
+    ]
+  },
+  "duplicates": {
+    "distinct_tweet_ids_with_duplicates": 0,
+    "redundant_row_count": 0,
+    "examples": []
+  },
+  "invalid_sentiment": {
+    "count": 0,
+    "examples": []
+  },
+  "invalid_agreement_level": {
+    "count": 0,
+    "examples": []
+  },
+  "unexpected_model": {
+    "count": 0,
+    "examples": []
+  },
+  "unexpected_event": {
+    "count": 0,
+    "examples": []
+  },
+  "temporal": {
+    "days_after_event_negative_count": 0,
+    "days_after_event_over_90_count": 0,
+    "event_date_null_or_blank_count": 5316,
+    "days_after_event_null_or_blank_count": 5316,
+    "examples_days_negative": [],
+    "examples_days_over_90": [],
+    "examples_missing_event_date": [
+      {
+        "tweet_id": "1409892839941672964#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409894669820039175#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409896611703054336#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409896784986394624#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409897269659324423#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409898439887003650#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409900417740328960#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409919511449509891#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409922047040491527#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409925833435889679#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409932812577280006#m",
+        "field": "event_date"
+      },
+      {
+        "tweet_id": "1409932915107151879#m",
+        "field": "event_date"
+      }
+    ]
+  },
+  "distributions": {
+    "by_model": {
+      "copilot": 1789,
+      "gpt": 10211,
+      "gemini": 3011
+    },
+    "by_event": {
+      "launch_initial": 6409,
+      "latest_version": 8602
+    },
+    "by_final_sentiment": {
+      "NEGATIVO": 3821,
+      "NEUTRO": 7358,
+      "POSITIVO": 3832
+    }
+  },
+  "summary": {
+    "total_records": 15011,
+    "valid_records_no_blocking_issue": 15011,
+    "problematic_records_blocking": 0,
+    "duplicate_distinct_ids": 0,
+    "redundant_duplicate_rows": 0,
+    "rows_with_any_null_required_field": 5316,
+    "invalid_sentiment_row_hits": 0
+  },
+  "readiness": {
+    "ready_for_metrics": true,
+    "ready_for_charts": true,
+    "ready_for_tcc_results": true,
+    "blocking_issues": false,
+    "has_warnings": true,
+    "notes": [
+      "Bloqueante: tweet_id duplicado; tweet_id/content/final_sentiment ausentes; qualquer sentimento fora de POSITIVO|NEGATIVO|NEUTRO.",
+      "Aviso: event_date ou days_after_event ausentes; dias fora de [0,90]; agreement_level ∉ {1,2,3}; model ∉ {gpt,gemini,copilot}; event ∉ {launch_initial,latest_version}."
+    ]
+  }
+}

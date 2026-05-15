@@ -1,0 +1,147 @@
+{
+  "input_file": "data/reference_labels_final_complete.json",
+  "n_rows_total": 15011,
+  "n_evaluated": 15011,
+  "n_skipped_invalid_label": 0,
+  "skipped_examples": [],
+  "metrics": {
+    "accuracy": 0.6801012590766771,
+    "precision_macro": 0.7037677821760705,
+    "recall_macro": 0.6801450760679314,
+    "f1_macro": 0.6738637666280113
+  },
+  "per_class": {
+    "POSITIVO": {
+      "precision": 0.5593856045722451,
+      "recall": 0.8173277661795407,
+      "f1_score": 0.6641925564627293,
+      "support": 3832
+    },
+    "NEGATIVO": {
+      "precision": 0.8274900398406374,
+      "recall": 0.5435749803716304,
+      "f1_score": 0.6561364713315432,
+      "support": 3821
+    },
+    "NEUTRO": {
+      "precision": 0.7244277021153289,
+      "recall": 0.679532481652623,
+      "f1_score": 0.7012622720897616,
+      "support": 7358
+    }
+  },
+  "sklearn_classification_report": {
+    "POSITIVO": {
+      "precision": 0.5593856045722451,
+      "recall": 0.8173277661795407,
+      "f1-score": 0.6641925564627293,
+      "support": 3832.0
+    },
+    "NEGATIVO": {
+      "precision": 0.8274900398406374,
+      "recall": 0.5435749803716304,
+      "f1-score": 0.6561364713315432,
+      "support": 3821.0
+    },
+    "NEUTRO": {
+      "precision": 0.7244277021153289,
+      "recall": 0.679532481652623,
+      "f1-score": 0.7012622720897616,
+      "support": 7358.0
+    },
+    "accuracy": 0.6801012590766771,
+    "macro avg": {
+      "precision": 0.7037677821760705,
+      "recall": 0.6801450760679314,
+      "f1-score": 0.6738637666280113,
+      "support": 15011.0
+    },
+    "weighted avg": {
+      "precision": 0.7085300187273672,
+      "recall": 0.6801012590766771,
+      "f1-score": 0.6803125129144941,
+      "support": 15011.0
+    }
+  },
+  "confusion_matrix": {
+    "description": "Linhas = final_sentiment (verdadeiro); colunas = mistral_sentiment (predito).",
+    "labels_true_rows": [
+      "POSITIVO",
+      "NEGATIVO",
+      "NEUTRO"
+    ],
+    "labels_pred_cols": [
+      "POSITIVO",
+      "NEGATIVO",
+      "NEUTRO"
+    ],
+    "matrix": [
+      [
+        3132,
+        69,
+        631
+      ],
+      [
+        473,
+        2077,
+        1271
+      ],
+      [
+        1994,
+        364,
+        5000
+      ]
+    ]
+  },
+  "agreement": {
+    "correct": 10209,
+    "wrong": 4802,
+    "agreement_percentage": 68.0101
+  },
+  "top_confusions": [
+    {
+      "true_final_sentiment": "NEUTRO",
+      "pred_mistral_sentiment": "POSITIVO",
+      "pair_label": "POSITIVO → NEUTRO",
+      "count": 1994
+    },
+    {
+      "true_final_sentiment": "NEGATIVO",
+      "pred_mistral_sentiment": "NEUTRO",
+      "pair_label": "NEUTRO → NEGATIVO",
+      "count": 1271
+    },
+    {
+      "true_final_sentiment": "POSITIVO",
+      "pred_mistral_sentiment": "NEUTRO",
+      "pair_label": "NEUTRO → POSITIVO",
+      "count": 631
+    },
+    {
+      "true_final_sentiment": "NEGATIVO",
+      "pred_mistral_sentiment": "POSITIVO",
+      "pair_label": "POSITIVO → NEGATIVO",
+      "count": 473
+    },
+    {
+      "true_final_sentiment": "NEUTRO",
+      "pred_mistral_sentiment": "NEGATIVO",
+      "pair_label": "NEGATIVO → NEUTRO",
+      "count": 364
+    },
+    {
+      "true_final_sentiment": "POSITIVO",
+      "pred_mistral_sentiment": "NEGATIVO",
+      "pair_label": "NEGATIVO → POSITIVO",
+      "count": 69
+    }
+  ],
+  "all_error_pair_counts": {
+    "NEGATIVO→POSITIVO": 69,
+    "NEUTRO→POSITIVO": 631,
+    "POSITIVO→NEGATIVO": 473,
+    "NEUTRO→NEGATIVO": 1271,
+    "POSITIVO→NEUTRO": 1994,
+    "NEGATIVO→NEUTRO": 364
+  }
+}

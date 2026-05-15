@@ -1,0 +1,10 @@
+pair,anchor_column,other_column,sentiment_class,n_tweets_anchor_class,n_agree_same_class,n_disagree,pct_agree_within_anchor_class
+llama_vs_phi,llama_sentiment,phi_sentiment,POSITIVO,4236,1360,2876,32.1058
+llama_vs_phi,llama_sentiment,phi_sentiment,NEGATIVO,5152,2443,2709,47.4185
+llama_vs_phi,llama_sentiment,phi_sentiment,NEUTRO,5623,4394,1229,78.1433
+llama_vs_deepseek,llama_sentiment,deepseek_sentiment,POSITIVO,4236,2982,1254,70.3966
+llama_vs_deepseek,llama_sentiment,deepseek_sentiment,NEGATIVO,5152,2663,2489,51.6887
+llama_vs_deepseek,llama_sentiment,deepseek_sentiment,NEUTRO,5623,3245,2378,57.7094
+phi_vs_deepseek,phi_sentiment,deepseek_sentiment,POSITIVO,2051,1811,240,88.2984
+phi_vs_deepseek,phi_sentiment,deepseek_sentiment,NEGATIVO,3746,2349,1397,62.7069
+phi_vs_deepseek,phi_sentiment,deepseek_sentiment,NEUTRO,9214,4682,4532,50.814

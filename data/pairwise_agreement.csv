@@ -1,0 +1,4 @@
+pair,column_a,column_b,n_total_valid,n_agree,n_disagree,pct_agree,pct_disagree
+llama_vs_phi,llama_sentiment,phi_sentiment,15011,8197,6814,54.6066,45.3934
+llama_vs_deepseek,llama_sentiment,deepseek_sentiment,15011,8890,6121,59.2232,40.7768
+phi_vs_deepseek,phi_sentiment,deepseek_sentiment,15011,8842,6169,58.9035,41.0965

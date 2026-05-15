@@ -43,8 +43,6 @@ Diretrizes:
 - Considere o contexto implícito.
 - Emojis podem indicar sentimento.
 - Interprete ironia ou sarcasmo quando possível.
-- Não assuma sentimento sem evidência clara no texto.
-- Se houver ambiguidade ou ausência de emoção clara, classifique como NEUTRO.
 
 Texto: "{text}"
 

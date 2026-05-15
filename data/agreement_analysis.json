@@ -1,0 +1,197 @@
+{
+  "source_file": "data/reference_labels.json",
+  "n_tweets": 15011,
+  "pairwise": [
+    {
+      "pair": "llama_vs_phi",
+      "column_a": "llama_sentiment",
+      "column_b": "phi_sentiment",
+      "n_total_valid": 15011,
+      "n_agree": 8197,
+      "n_disagree": 6814,
+      "pct_agree": 54.6066,
+      "pct_disagree": 45.3934
+    },
+    {
+      "pair": "llama_vs_deepseek",
+      "column_a": "llama_sentiment",
+      "column_b": "deepseek_sentiment",
+      "n_total_valid": 15011,
+      "n_agree": 8890,
+      "n_disagree": 6121,
+      "pct_agree": 59.2232,
+      "pct_disagree": 40.7768
+    },
+    {
+      "pair": "phi_vs_deepseek",
+      "column_a": "phi_sentiment",
+      "column_b": "deepseek_sentiment",
+      "n_total_valid": 15011,
+      "n_agree": 8842,
+      "n_disagree": 6169,
+      "pct_agree": 58.9035,
+      "pct_disagree": 41.0965
+    }
+  ],
+  "stratified_agreement_by_anchor_class": {
+    "llama_vs_phi": [
+      {
+        "anchor_column": "llama_sentiment",
+        "other_column": "phi_sentiment",
+        "sentiment_class": "POSITIVO",
+        "n_tweets_anchor_class": 4236,
+        "n_agree_same_class": 1360,
+        "n_disagree": 2876,
+        "pct_agree_within_anchor_class": 32.1058
+      },
+      {
+        "anchor_column": "llama_sentiment",
+        "other_column": "phi_sentiment",
+        "sentiment_class": "NEGATIVO",
+        "n_tweets_anchor_class": 5152,
+        "n_agree_same_class": 2443,
+        "n_disagree": 2709,
+        "pct_agree_within_anchor_class": 47.4185
+      },
+      {
+        "anchor_column": "llama_sentiment",
+        "other_column": "phi_sentiment",
+        "sentiment_class": "NEUTRO",
+        "n_tweets_anchor_class": 5623,
+        "n_agree_same_class": 4394,
+        "n_disagree": 1229,
+        "pct_agree_within_anchor_class": 78.1433
+      }
+    ],
+    "llama_vs_deepseek": [
+      {
+        "anchor_column": "llama_sentiment",
+        "other_column": "deepseek_sentiment",
+        "sentiment_class": "POSITIVO",
+        "n_tweets_anchor_class": 4236,
+        "n_agree_same_class": 2982,
+        "n_disagree": 1254,
+        "pct_agree_within_anchor_class": 70.3966
+      },
+      {
+        "anchor_column": "llama_sentiment",
+        "other_column": "deepseek_sentiment",
+        "sentiment_class": "NEGATIVO",
+        "n_tweets_anchor_class": 5152,
+        "n_agree_same_class": 2663,
+        "n_disagree": 2489,
+        "pct_agree_within_anchor_class": 51.6887
+      },
+      {
+        "anchor_column": "llama_sentiment",
+        "other_column": "deepseek_sentiment",
+        "sentiment_class": "NEUTRO",
+        "n_tweets_anchor_class": 5623,
+        "n_agree_same_class": 3245,
+        "n_disagree": 2378,
+        "pct_agree_within_anchor_class": 57.7094
+      }
+    ],
+    "phi_vs_deepseek": [
+      {
+        "anchor_column": "phi_sentiment",
+        "other_column": "deepseek_sentiment",
+        "sentiment_class": "POSITIVO",
+        "n_tweets_anchor_class": 2051,
+        "n_agree_same_class": 1811,
+        "n_disagree": 240,
+        "pct_agree_within_anchor_class": 88.2984
+      },
+      {
+        "anchor_column": "phi_sentiment",
+        "other_column": "deepseek_sentiment",
+        "sentiment_class": "NEGATIVO",
+        "n_tweets_anchor_class": 3746,
+        "n_agree_same_class": 2349,
+        "n_disagree": 1397,
+        "pct_agree_within_anchor_class": 62.7069
+      },
+      {
+        "anchor_column": "phi_sentiment",
+        "other_column": "deepseek_sentiment",
+        "sentiment_class": "NEUTRO",
+        "n_tweets_anchor_class": 9214,
+        "n_agree_same_class": 4682,
+        "n_disagree": 4532,
+        "pct_agree_within_anchor_class": 50.814
+      }
+    ]
+  },
+  "triple_disagreement": {
+    "agreement_level": 1,
+    "count": 1004,
+    "percentage_of_all_tweets": 6.6884,
+    "ordered_triplet_counts": {
+      "NEGATIVO|NEUTRO|POSITIVO": 601,
+      "NEGATIVO|POSITIVO|NEUTRO": 17,
+      "NEUTRO|NEGATIVO|POSITIVO": 131,
+      "NEUTRO|POSITIVO|NEGATIVO": 8,
+      "POSITIVO|NEGATIVO|NEUTRO": 80,
+      "POSITIVO|NEUTRO|NEGATIVO": 167
+    },
+    "n_distinct_patterns": 6,
+    "random_examples": [
+      {
+        "tweet_id": "1786528233816477818",
+        "content": "estou seguindo a 1° live. Faz tempo que não fica tão empolgado pra aprender algo como as acessibilidades do GEMINI.",
+        "llama_sentiment": "NEGATIVO",
+        "phi_sentiment": "NEUTRO",
+        "deepseek_sentiment": "POSITIVO"
+      },
+      {
+        "tweet_id": "1613272562418741248#m",
+        "content": "O chat gpt é um bot de respostas que mostra como funciona a \"cabeça da AI\" E DE NOVO, MOSTRA COMO A AI IDENTIFICA UM ARTISTA/IMAGEM PARA DEPOIS FAZER UMA REPRODUÇAO INSPIRADA QUE CRIA UMA COISA NOVA. Sem copia, roubo de imagem e sem colagem. SO IDENTIFICANDO PADROES!",
+        "llama_sentiment": "NEGATIVO",
+        "phi_sentiment": "NEUTRO",
+        "deepseek_sentiment": "POSITIVO"
+      },
+      {
+        "tweet_id": "1599057593498234881#m",
+        "content": "Então vou trazer mais um exemplo que tenho certeza que irá gostar, Paula!\n\nAmigo usou a AI GPT para gerar o lindo poema abaixo.\n\nWrite a poem about the downfall of Bolsonaro and the return of Lula in the style of Tolkien.\n+",
+        "llama_sentiment": "POSITIVO",
+        "phi_sentiment": "NEGATIVO",
+        "deepseek_sentiment": "NEUTRO"
+      },
+      {
+        "tweet_id": "1803116650629091383#m",
+        "content": "Vão assinar o gpt 4 no meu trabalho, É DISSO QUE EU ESTOU FALANDO",
+        "llama_sentiment": "POSITIVO",
+        "phi_sentiment": "NEGATIVO",
+        "deepseek_sentiment": "NEUTRO"
+      },
+      {
+        "tweet_id": "1624158632639139845#m",
+        "content": "No chat gpt vc pode pedir pra escrever conteúdo com um determinado tom. Não é muito criativo mas funciona e é bizarro pensar que isso tudo é feito por IA.",
+        "llama_sentiment": "NEGATIVO",
+        "phi_sentiment": "NEUTRO",
+        "deepseek_sentiment": "POSITIVO"
+      },
+      {
+        "tweet_id": "1622020342880370689#m",
+        "content": "Exemplo de uso de ChatGPT corrigindo um exercício pra mim",
+        "llama_sentiment": "NEGATIVO",
+        "phi_sentiment": "NEUTRO",
+        "deepseek_sentiment": "POSITIVO"
+      },
+      {
+        "tweet_id": "1620532330485145600#m",
+        "content": "Aproveitando que o Chat GPT virou moda, pedi pra montar um discurso padrão só com as respostas esfarrapadas que as pessoas dão nesses momentos\nFicou lindo ahahaha",
+        "llama_sentiment": "POSITIVO",
+        "phi_sentiment": "NEGATIVO",
+        "deepseek_sentiment": "NEUTRO"
+      },
+      {
+        "tweet_id": "1614411138938052609#m",
+        "content": "conselho para os estudantes de 2023: usem o chatgpt pra TUDO\n\nestudem por ele, façam atividades por ele, tirem suas dúvidas nele, peça pra ele fazer exercícios pra vc, peça indicações pra ele, USE A CRIATIVIDADE\n\nprestigiem um pedaço do futuro",
+        "llama_sentiment": "NEGATIVO",
+        "phi_sentiment": "NEUTRO",
+        "deepseek_sentiment": "POSITIVO"
+      }
+    ]
+  }
+}
